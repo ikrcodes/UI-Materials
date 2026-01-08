@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title | Salon Admin</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet" />
+
+    <style>
+        body {
+            overflow-x: hidden;
+        }
+
+        /* Sidebar */
+        .admin-sidebar {
+            width: 250px;
+            height: 100vh;
+            position: fixed;
+            top: 56px;
+            left: 0;
+            background: #0f172a;
+            padding-top: 15px;
+        }
+
+            .admin-sidebar a {
+                color: #cbd5f5;
+                padding: 12px 20px;
+                display: block;
+                text-decoration: none;
+                font-size: 14px;
+            }
+
+                .admin-sidebar a:hover,
+                .admin-sidebar a.active {
+                    background: #1e293b;
+                    color: #ffffff;
+                }
+
+        /* Content */
+        .admin-content {
+            margin-left: 250px;
+            padding: 20px;
+            margin-top: 56px;
+        }
+
+        @@media (max-width: 768px) {
+            .admin-sidebar
+
+        {
+            position: static;
+            width: 100%;
+            height: auto;
+        }
+
+        .admin-content {
+            margin-left: 0;
+        }
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ================= TOP NAVBAR ================= -->
+    <nav class="navbar navbar-dark bg-dark fixed-top shadow">
+        <div class="container-fluid">
+
+            <a class="navbar-brand fw-bold" href="/Admin/Dashboard">
+                💇 Salon Admin
+            </a>
+
+            <div class="dropdown">
+                <a class="text-white dropdown-toggle text-decoration-none" data-bs-toggle="dropdown">
+                    <i class="bi bi-person-circle"></i> Admin
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end">
+                    <li><a class="dropdown-item" href="/Admin/Profile">Profile</a></li>
+                    <li><a class="dropdown-item" href="/Admin/ChangePassword">Change Password</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item text-danger" href="/Admin/Logout">Logout</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+    <!-- =============== TOP NAVBAR END ================= -->
+    <!-- ================= SIDEBAR ================= -->
+    <div class="admin-sidebar">
+
+        <a href="/Admin/Dashboard"><i class="bi bi-speedometer2"></i> Dashboard</a>
+
+        <a href="/Admin/Appointments"><i class="bi bi-calendar-check"></i> Appointments</a>
+
+        <a href="/Admin/Services"><i class="bi bi-scissors"></i> Services</a>
+
+        <a href="/Admin/Categories"><i class="bi bi-tags"></i> Categories</a>
+
+        <a href="/Admin/Stylists"><i class="bi bi-people"></i> Stylists / Team</a>
+
+        <a href="/Admin/Gallery"><i class="bi bi-images"></i> Our Work (Gallery)</a>
+
+        <a href="/Admin/Reviews"><i class="bi bi-chat-left-quote"></i> Reviews</a>
+
+        <a href="/Admin/Customers"><i class="bi bi-person-lines-fill"></i> Customers</a>
+
+        <a href="/Admin/Payments"><i class="bi bi-credit-card"></i> Payments</a>
+
+        <a href="/Admin/Settings"><i class="bi bi-gear"></i> Settings</a>
+
+        <a href="/Admin/Logout" class="text-danger">
+            <i class="bi bi-box-arrow-right"></i> Logout
+        </a>
+
+    </div>
+    <!-- =============== SIDEBAR END ================= -->
+    <!-- ================= CONTENT ================= -->
+    <div class="admin-content">
+        @RenderBody()
+    </div>
+    <!-- =============== CONTENT END ================= -->
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
